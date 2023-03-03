@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <style>
+      .table {
+        margin-top: 20px;
+      }
+      .card {
+        margin-bottom: 20px;
+      }
+      .card-header {
+        text-align: center;
+      }
+      .navbar {
+        margin-bottom: 20px;
+      }
+      .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+      .row {
+        width: 80%;
+      }
+    </style>
+    <title>Admin Dashboard</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+      <a class="navbar-brand" href="#">Job Board Admin</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Users</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Companies</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="card">
+            <div class="card-header">
+              <h3>Users Count and List</h3>
+            </div>
+            <div class="card-body">
+              <p>Total Users: 100</p>
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+<!-- example data -->
+<tr>
+    <td>John Doe</td>
+    <td>johndoe@email.com</td>
+    <td><a href="#">Details</a></td>
+  </tr>
+  <tr>
+    <td>Jane Doe</td>
+    <td>janedoe@email.com</td>
+    <td><a href="#">Details</a></td>
+  </tr>
+</tbody>
+</table>
+</div>
+        </div>
+    </div>
+<div class="col-md-6">
+    <div class="card">
+        <div class="card-header">
+        <h3>Companies Count and List</h3>
+    </div>
+    <div class="card-body">
+    <p>Total Companies: 50</p>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <!-- example data -->
+                    <td>Apple Inc.</td>
+                    <td>apple@email.com</td>
+                    <td><a href="#">Details</a></td>
+                </tr>
+                <tr>
+                    <!-- example data -->
+                    <td>Google LLC</td>
+                    <td>google@email.com</td>
+                    <td><a href="#">Details</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</div>
+<div class="col-md-6">
+    <div class="card">
+        <div class="card-header">
+        <h3>Companies Count and List</h3>
+    </div>
+    <div class="card-body">
+    <p>Total Companies: 50</p>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <!-- example data -->
+                    <td>Apple Inc.</td>
+                    <td>apple@email.com</td>
+                    <td><a href="#">Details</a></td>
+                </tr>
+                <tr>
+                    <!-- example data -->
+                    <td>Google LLC</td>
+                    <td>google@email.com</td>
+                    <td><a href="#">Details</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</div>
+</div>
+</div>
+<div class="container my-5">
+    <h2 class="text-center mb-3">Statistics</h2>
+    <p class="text-center mb-5">Overview of user activity and job postings</p>
+  
+    <!-- Job Postings Chart -->
+    <div class="card mb-5" style="box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);border-radius: 10px;">
+      <div class="card-header bg-primary text-white">
+        Job Postings
+      </div>
+      <div class="card-body">
+        <canvas id="config"></canvas>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.2.0/chart.min.js" integrity="sha512-qKyIokLnyh6oSnWsc5h21uwMAQtljqMZZT17CIMXuCQNIfFSFF4tJdMOaJHL9fQdJUANid6OB6DRR0zdHrbWAw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script>
+    // Job Postings Chart Data
+    const config = {
+  type: 'bar',
+  data: data,
+  options: {
+    scales: {
+      y: {
+        beginAtZero: true
+      }
+    }
+  },
+};
+  
+    // Create Job Postings Chart
+    const ctxJobPostings = document.getElementById('jobPostingsChart').getContext('2d');
+    const jobPostingsChart = new Chart(ctxJobPostings, {
+      type: 'bar',
+      data: jobPostingsData,
+      options: {
+        scales: {
+          yAxes: [{
+            ticks: {
+              beginAtZero: true
+            }
+          }]
+        }
+      }
+    });
+  </script>
+  
+  <!-- CSS -->
+  <style>
+  
+    /* Chart */
+    canvas {
+      width: 100% !important;
+      height: 300px !important;
+    }
+  </style>
+  
+  <!-- JavaScript for Charts -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>

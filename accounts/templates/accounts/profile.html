@@ -1,0 +1,69 @@
+
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+
+{% block body %} 
+    <!-- bradcam_area  -->
+    <div class="bradcam_area bradcam_bg_1">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="bradcam_text">
+                        <h3>Profile</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--/ bradcam_area  -->
+
+    <div class="job_details_area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="job_sumary">
+                        <div class="summery_header">
+                            <h3>Profile Summery</h3>
+                        </div>
+                        {% if request.user.role == 'STUDENT' %}
+                        <div class="job_content">
+                            <ul>
+                                <li>content with admin to add ur info</li>
+                                <li>Name: <span>{{stu}}</span></li>
+                                <li>index: <span>{{stu.index}}</span></li>
+                                <li>batch: <span>{{stu.batch}}</span></li>
+                                <li>phone_number: <span>{{stu.phone_number}}</span></li>
+                                <li>cgpa: <span>{{stu.cgpa}}</span></li>
+                            </ul>
+                            
+                        </div>
+                        {% else %}
+                        <div class="job_content">
+                            <ul>
+                                <li>content with admin to add ur info</li>
+                                <li>Name: <span>{{company}}</span></li>
+                                <li>loction: <span>{{company.loction}}</span></li>
+                                <li>desc: <span>{{company.desc}}</span></li>
+                                <li>email: <span>{{company.email}}</span></li>
+                                <li>contact_number: <span>{{company.contact_number}}</span></li>
+                                <li>onwer_name: <span>{{company.onwer_name}}</span></li>
+                            </ul>
+                        </div>
+                        {% endif %}
+
+                        <div class="p-5">
+                            <a class="boxed-btn3 w-100" href="{% url 'logout' %}"> logout</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% endblock body %}
+
+
+
+
+
+ 
