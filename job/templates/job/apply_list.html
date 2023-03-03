@@ -1,0 +1,90 @@
+
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+
+{% block body %} 
+    <!-- bradcam_area  -->
+    <div class="bradcam_area bradcam_bg_1">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="bradcam_text">
+                        <h3>{{apply.job}}</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--/ bradcam_area  -->
+
+    <div class="job_details_area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="job_details_header">
+                        <div class="single_jobs white-bg d-flex justify-content-between">
+                            <div class="jobs_left d-flex align-items-center">   
+                                <div class="jobs_conetent">
+                                    <a href="#"><h4>{{apply.job}}</h4></a>
+                                    <div class="links_locat d-flex align-items-center">
+                                        <div class="location">
+                                            <p> <i class="fa fa-map-marker"></i>{{apply.job.location}}</p>
+                                        </div>
+                                        <div class="location">
+                                            <p> <i class="fa fa-clock-o"></i>{{apply.published_at | date:'d M o'}}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="jobs_right">
+                                <div class="apply_now">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="descript_wrap white-bg">
+                        <div class="single_wrap">
+                            <h4>description</h4>
+                            <p>{{apply.job.description}}</p>
+                        </div>
+                        <div class="single_wrap">
+                            <h4>Responsibility</h4>
+                            <p>{{apply.job.Responsibility}}</p>
+                        </div>
+                        <div class="single_wrap">
+                            <h4>Benefits</h4>
+                            <p>{{apply.job.Benefits}}</p>
+                        </div>
+                        
+                    </div>
+                    <div class="apply_job_form white-bg">
+                        <h1>status</h1>
+                        <hr>
+                        <h3>{{apply.status}}</h3>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="job_sumary">
+                        <div class="summery_header">
+                            <h3>Summery</h3>
+                        </div>
+                        <div class="job_content">
+                            <ul>
+                                <li>Published on: <span>{{apply.job.published_at|date:'d M o'}}</span></li>
+                                <li>Vacancy: <span>{{apply.job.Vacancy}} Position</span></li>
+                                <li>Nature: <span> {{apply.job.type_job}}</span></li>
+                            </ul>
+                        </div>   
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% endblock body %}
+
+
+
+
+
+ 

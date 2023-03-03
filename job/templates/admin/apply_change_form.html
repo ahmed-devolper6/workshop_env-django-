@@ -1,0 +1,17 @@
+{% extends "admin/change_form.html" %}
+
+{% block after_related_objects %}
+  <div class="module">
+    <h2>Custom Field</h2>
+    <div class="form-row">
+      <div class="form-group col-md-12">
+        <label>Status</label>
+        <select name="status" id="id_status" class="form-control">
+          <option value="pending">Pending</option>
+          <option value="accepted">Accepted</option>
+          <option value="rejected">Rejected</option>
+        </select>
+      </div>
+    </div>
+  </div>
+{% endblock %}

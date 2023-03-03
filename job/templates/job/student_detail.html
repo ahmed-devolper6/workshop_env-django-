@@ -1,0 +1,118 @@
+
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+
+{% block body %} 
+    <!-- bradcam_area  -->
+    <div class="bradcam_area bradcam_bg_1">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="bradcam_text">
+                        <h3>{{apply.job}}</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--/ bradcam_area  -->
+
+    <div class="job_details_area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="job_details_header">
+                        <div class="single_jobs white-bg d-flex justify-content-between">
+                            <div class="jobs_left d-flex align-items-center">   
+                                <div class="jobs_conetent">
+                                    <a href="#"><h4>{{job.student}}</h4></a>
+                                    <div class="links_locat d-flex align-items-center">
+                                        <div class="location">
+                                            <p> <i class="fa fa-map-marker"></i>{{job.job.location}}</p>
+                                        </div>
+                                        <div class="location">
+                                            <p> <i class="fa fa-clock-o"></i>{{job.job.published_at | date:'d M o'}}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="jobs_right">
+                                <div class="apply_now">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="descript_wrap white-bg">
+                        <div class="single_wrap">
+                            <h4>apply on</h4>
+                            <p>{{job.job}} Position</p>
+                        </div>
+                        <div class="single_wrap">
+                            <h4>studnet name</h4>
+                            <p>{{proflie}}</p>
+                        </div>
+                        <div class="single_wrap">
+                            <h4>studnet index</h4>
+                            <p>{{proflie.index}}</p>
+                        </div>
+                        <div class="single_wrap">
+                            <h4>faculty</h4>
+                            <p>{{proflie.faculty}}</p>
+                        </div>
+                        <div class="single_wrap">
+                            <h4>batches</h4>
+                            <p>{{proflie.batches}}</p>
+                        </div>
+                        <div class="single_wrap">
+                            <h4>phone_number</h4>
+                            <p>{{proflie.phone_number}}</p>
+                        </div>
+                        <div class="single_wrap">
+                            <h4>cgpa</h4>
+                            <p>{{proflie.cgpa}}</p>
+                        </div>
+                        <div class="single_wrap">
+                            <h4>cgpa</h4>
+                            <p>{{proflie.email}}</p>
+                        </div>
+                    </div>
+                    <div class="apply_job_form white-bg">
+                        <h1>actions</h1>
+                        <hr>
+                        <h3>{{apply.status}}</h3>
+                        <div class="actions">
+                            <form action="" method="post">
+                                {% csrf_token %}
+                                <select name="status_company" id="id_status_company" class="form-select" aria-label="Default select example">
+                                    <option selected>A/R</option>
+                                    <option value="True">Accept</option>
+                                    <option value="False">Regret</option>
+                                  </select>
+                                  <input type="submit" class="btn btn-success" value="submit">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="job_sumary">
+                        <div class="summery_header">
+                            <h3>Summery</h3>
+                        </div>
+                        <div class="job_content">
+                            <ul>
+                                <li>applyed on: <span>{{job.date |date:'d M o'}}</span></li>
+                            </ul>
+                        </div>   
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% endblock body %}
+
+
+
+
+
+ 
