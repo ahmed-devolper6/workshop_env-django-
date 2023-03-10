@@ -58,8 +58,8 @@ def create_user_profile(sender, instance, created, **kwargs):
 
 
 class StudentProfile(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
-    index = models.IntegerField(max_length=10, null=True , blank=True , default=0)
+    user = models.OneToOneField(Student, on_delete=models.CASCADE, related_name='studnet_proflie')
+    name = models.CharField(max_length=45)
     faculty = models.ForeignKey('Faculty',on_delete=models.SET_NULL,null=True,blank=True,related_name='students_faculty')
     batches = models.ForeignKey('Batches',on_delete=models.SET_NULL,null=True,blank=True,related_name='students_batches')
     phone_number = models.CharField(max_length=14,null=True,blank=True,default='')
@@ -103,7 +103,7 @@ class Company(User):
 
 
 class CompanyProfile(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    user = models.OneToOneField(Company, on_delete=models.CASCADE,related_name='company_proflie')
     loction = models.CharField(max_length=50)
     desc = models.TextField(max_length=250)
     image = models.ImageField(upload_to="company_proflie_img")

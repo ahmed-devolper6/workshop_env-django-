@@ -1,0 +1,88 @@
+{% extends "dashborad_base.html" %}
+{% block admin %}
+{% load bootstrap4 %}
+
+
+
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+
+                    <!-- Page Heading -->
+                    <h1 class="h3 mb-2 mt-2 text-gray-800">Tables</h1>
+                    <p class="mb-4">the is i report for studnets applyes for workshop</a></p>
+
+                    <!-- DataTales Example -->
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+                            <form method="post">
+                                {% csrf_token %}
+                                {% bootstrap_form form %}
+                                <input type="submit" value="flitering" class="boxed-btn3 w-100"/>
+                                <input type="hidden" name="next" value="{{ next }}" />
+                              </form>                              
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>index</th>
+                                            <th>name</th>
+                                            <th>batch</th>
+                                            <th>faculty</th>
+                                            <th>workshop</th>
+                                            <th>company</th>
+                                            <th>date</th>  
+                                            <th>company status</th>
+                                            <th>admin status</th>
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                            <th>index</th>
+                                            <th>name</th>
+                                            <th>batch</th>
+                                            <th>faculty</th>
+                                            <th>workshop</th>
+                                            <th>company</th>
+                                            <th>date</th>
+                                            <th>company status</th>
+                                            <th>admin status</th>
+                                        </tr>
+                                    </tfoot>
+                                    <tbody>
+                                        {% for obj in info %}
+                                        <tr>
+                                            <td>{{obj}}</td>
+                                            <td>{{obj.student.studnet_proflie.name}}</td>
+                                            <td>{{obj.student.studnet_proflie.batches}}</td>
+                                            <td>{{obj.student.studnet_proflie.faculty}}</td>
+                                            <td>{{obj.job}}</td>
+                                            <td>{{obj.job.owner}}</td>
+                                            <td>{{obj.date}}</td>
+                                            <td>{{obj.status_company}}</td>
+                                            <td>{{obj.status}}</td>
+                        
+                                        </tr>
+                                        {% endfor %}
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- /.container-fluid -->
+
+            </div>
+            <!-- End of Main Content -->
+
+
+
+        </div>
+        <!-- End of Content Wrapper -->
+
+   
+{% endblock admin %}

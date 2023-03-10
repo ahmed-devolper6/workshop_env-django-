@@ -23,7 +23,16 @@
                 <div class="col-lg-8">
                     <div class="job_details_header">
                         <div class="single_jobs white-bg d-flex justify-content-between">
-                            <div class="jobs_left d-flex align-items-center">   
+                            <div class="jobs_left d-flex align-items-center">
+                                <div class="thumb">
+                                    <img src="{{job.owner.company_proflie.image.url}}" alt="" style="
+                                    position: relative;
+                                    left: -27px;
+                                    bottom: 25px;
+                                    border-radius: 25px;
+                                    width: 100px;
+                                    height: 100px;">
+                                </div>   
                                 <div class="jobs_conetent">
                                     <a href="#"><h4>{{job}}</h4></a>
                                     <div class="links_locat d-flex align-items-center">
@@ -80,7 +89,7 @@
                             <ul>
                                 <li>Published on: <span>{{job.published_at|date:'d M o'}}</span></li>
                                 <li>Vacancy: <span>{{job.Vacancy}} Position</span></li>
-                                <li>Nature: <span> {{job.type_job}}</span></li>
+                                <li>onwer_name: <span> {{job.owner.company_proflie.onwer_name}}</span></li>
                             </ul>
                         </div>   
                     </div>

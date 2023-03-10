@@ -1,0 +1,182 @@
+{% extends "dashborad_base.html" %}
+{% block  admin %}
+{% load bootstrap4 %}
+
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+
+                    <!-- Page Heading -->
+                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                        <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
+
+                    </div>
+
+                    <!-- Content Row -->
+                    <div class="row">
+
+                        <!-- Earnings (Monthly) Card Example -->
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-primary shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                                Students</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{stundets}}</div>
+                                        </div>
+                                        <div class="col-auto">
+                                            
+                                            <i class="fas fa-users fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Earnings (Monthly) Card Example -->
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-success shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                                companys</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{companys}}</div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-user fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Earnings (Monthly) Card Example -->
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-info shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">workshops
+                                            </div>
+                                            <div class="row no-gutters align-items-center">
+                                                <div class="col-auto">
+                                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">{{workshops}}</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Pending Requests Card Example -->
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-warning shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                                Apply Requests</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{applyes}}</div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-comments fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Content Row -->
+                                    <!-- Begin Page Content -->
+                <div class="container-fluid">
+
+                    <!-- Page Heading -->
+                    <h1 class="h3 mb-2 mt-2 text-gray-800">Tables</h1>
+                    <p class="mb-4">the is i report for studnets applyes for workshop</a></p>
+
+                    <!-- DataTales Example -->
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+                            <form method="post">
+                                {% csrf_token %}
+                                {% bootstrap_form form %}
+                                <input type="submit" value="flitering" class="boxed-btn3 w-100"/>
+                                <input type="hidden" name="next" value="{{ next }}" />
+                              </form>                              
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>index</th>
+                                            <th>name</th>
+                                            <th>batch</th>
+                                            <th>faculty</th>
+                                            <th>workshop</th>
+                                            <th>company</th>
+                                            <th>date</th>
+                                            <th>admin status</th>  
+                                            <th>company status</th>
+                                            
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                            <th>index</th>
+                                            <th>name</th>
+                                            <th>batch</th>
+                                            <th>faculty</th>
+                                            <th>workshop</th>
+                                            <th>company</th>
+                                            <th>date</th>
+                                            <th>admin status</th>
+                                            <th>company status</th>
+                                        </tr>
+                                    </tfoot>
+                                    <tbody>
+                                        {% for obj in info %}
+                                        <tr>
+                                            <td>{{obj.student}}</td>
+                                            <td>{{obj.student.studnet_proflie.name}}</td>
+                                            <td>{{obj.student.studnet_proflie.batches}}</td>
+                                            <td>{{obj.student.studnet_proflie.faculty}}</td>
+                                            <td>{{obj.job}}</td>
+                                            <td>{{obj.job.owner}}</td>
+                                            <td>{{obj.date}}</td>
+                                            {% if obj.status != 'accept' and obj.status != 'regret' %}
+                                            <td>panding</td>
+                                            {% else %}
+                                            <td>{{obj.status}}</td>
+                                            {% endif %}
+                                            {% if obj.status_company != 'accept' and obj.status_company != 'regret' %}
+                                            <td>panding</td>
+                                            {% else %}
+                                            <td>{{obj.status_company}}</td>
+                                            {% endif %}
+
+                                        </tr>
+                                        {% endfor %}
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- /.container-fluid -->
+
+                    
+
+                </div>
+
+                <!-- /.container-fluid -->
+{% endblock admin %}

@@ -9,7 +9,7 @@
             <div class="row">
                 <div class="col-xl-12">
                     <div class="bradcam_text">
-                        <h3>{{apply.job}}</h3>
+                        <h3>{{job.student.studnet_proflie.name}}</h3>
                     </div>
                 </div>
             </div>
@@ -25,7 +25,7 @@
                         <div class="single_jobs white-bg d-flex justify-content-between">
                             <div class="jobs_left d-flex align-items-center">   
                                 <div class="jobs_conetent">
-                                    <a href="#"><h4>{{job.student}}</h4></a>
+                                    <a href="#"><h4>{{job.student.studnet_proflie.name}}</h4></a>
                                     <div class="links_locat d-flex align-items-center">
                                         <div class="location">
                                             <p> <i class="fa fa-map-marker"></i>{{job.job.location}}</p>
@@ -49,31 +49,31 @@
                         </div>
                         <div class="single_wrap">
                             <h4>studnet name</h4>
-                            <p>{{proflie}}</p>
+                            <p>{{job.student.studnet_proflie.name}}</p>
                         </div>
                         <div class="single_wrap">
                             <h4>studnet index</h4>
-                            <p>{{proflie.index}}</p>
+                            <p>{{job}}</p>
                         </div>
                         <div class="single_wrap">
                             <h4>faculty</h4>
-                            <p>{{proflie.faculty}}</p>
+                            <p>{{job.student.studnet_proflie.faculty}}</p>
                         </div>
                         <div class="single_wrap">
                             <h4>batches</h4>
-                            <p>{{proflie.batches}}</p>
+                            <p>{{job.student.studnet_proflie.batches}}</p>
                         </div>
                         <div class="single_wrap">
-                            <h4>phone_number</h4>
-                            <p>{{proflie.phone_number}}</p>
-                        </div>
-                        <div class="single_wrap">
-                            <h4>cgpa</h4>
-                            <p>{{proflie.cgpa}}</p>
+                            <h4>contact number</h4>
+                            <p>{{job.student.studnet_proflie.phone_number}}</p>
                         </div>
                         <div class="single_wrap">
                             <h4>cgpa</h4>
-                            <p>{{proflie.email}}</p>
+                            <p>{{job.student.studnet_proflie.cgpa}}</p>
+                        </div>
+                        <div class="single_wrap">
+                            <h4>email</h4>
+                            <p>{{job.student.studnet_proflie.email}}</p>
                         </div>
                     </div>
                     <div class="apply_job_form white-bg">

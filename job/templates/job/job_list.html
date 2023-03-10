@@ -33,6 +33,11 @@
                     </div>
                 </div>
                 <div class="col-lg-9">
+            {% if message %}
+            <div class="alert alert-success">
+                {{ message }}
+            </div>
+            {% endif %}
                     <div class="recent_joblist_wrap">
                         <div class="recent_joblist white-bg ">
                             <div class="row align-items-center">
@@ -51,14 +56,20 @@
                             <div class="col-lg-12 col-md-12">
                                 <div class="single_jobs white-bg d-flex justify-content-between">
                                     <div class="jobs_left d-flex align-items-center">
+                                        <div class="thumb">
+                                            <img src="{{job.owner.company_proflie.image.url}}" alt="" style="
+                                            position: relative;
+                                            left: -27px;
+                                            bottom: 25px;
+                                            border-radius: 25px;
+                                            width: 100px;
+                                            height: 100px;">
+                                        </div>
                                         <div class="jobs_conetent">
                                             <a href="{% url 'jobs:job_detail' job.slug %}"><h4>{{job.owner}} - {{job}}</h4></a>
                                             <div class="links_locat d-flex align-items-center">
                                                 <div class="location">
-                                                    <p> <i class="fa fa-map-marker"></i>{{job.location}}</p>
-                                                </div>
-                                                <div class="location">
-                                                    <p> <i class="fa fa-clock-o"></i> {{job.published_at | date:'d M o'}}</p>
+                                                    <p> <i class="fa fa-map-marker"></i>{{job.owner.company_proflie.loction}}</p>
                                                 </div>
                                             </div>
                                         </div>

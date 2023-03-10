@@ -40,6 +40,15 @@
                         <div class="col-lg-12 col-md-12">
                             <div class="single_jobs white-bg d-flex justify-content-between">
                                 <div class="jobs_left d-flex align-items-center">
+                                    <div class="thumb">
+                                        <img src="{{jobs.job.owner.company_proflie.image.url}}" alt="" style="
+                                        position: relative;
+                                        left: -27px;
+                                        bottom: 25px;
+                                        border-radius: 25px;
+                                        width: 100px;
+                                        height: 100px;">
+                                    </div>
                                     <div class="jobs_conetent">
                                         <a href="{% url 'job:trace_applyes' jobs.id %}"><h4>{{jobs.job}}</h4></a>
                                         <div class="links_locat d-flex align-items-center">

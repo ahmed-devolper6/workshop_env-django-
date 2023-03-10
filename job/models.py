@@ -12,21 +12,14 @@ COMPANY = (
     ('accept','accept'),
     ('regret','regret'),
 )
-JOB_TYPE = (
-    ("workshops", "workshops"),
-    ("traninng", "traninng"),
-)
 
 
 def image_upload(instance, filename):
     imagename, extension = filename.split(".")
     return "jobs/%s.%s" % (instance.id, extension)
 
-
 class Job(models.Model):  # table
-    owner = models.ForeignKey(
-        Company, related_name="job_owner", on_delete=models.CASCADE
-    )
+    owner = models.ForeignKey(Company, related_name="job_owner", on_delete=models.CASCADE)
     description = models.TextField(max_length=250)
     title = models.CharField(max_length=100)  #
     published_at = models.DateTimeField(auto_now=True)
@@ -35,7 +28,6 @@ class Job(models.Model):  # table
     Responsibility = models.TextField(max_length=250)
     Benefits = models.TextField(max_length=250)
     slug = models.SlugField(blank=True, null=True)
-    type_job = models.CharField(max_length=30,choices=JOB_TYPE,null=True) 
     location = models.CharField(max_length=20)
     def save(self, *args, **kwargs):
         self.slug = slugify(self.title)
@@ -55,7 +47,7 @@ class Category(models.Model):
 
 class Apply(models.Model):
     student = models.ForeignKey(Student, related_name = 'student_apply',on_delete= models.SET_NULL, null = True , blank = True)
-    job = models.ForeignKey(Job, related_name = 'Job_apply',on_delete= models.SET_NULL , null = True , blank = True)
+    job = models.ForeignKey(Job, related_name='job_apply',on_delete= models.SET_NULL , null = True , blank = True)
     status = models.CharField(max_length=25,choices=status,null=True,blank=True)
     cover_letter = models.TextField(max_length=50)
     date = models.DateField(default=timezone.now)
@@ -63,5 +55,5 @@ class Apply(models.Model):
 
 
     def __str__(self):
-        return str(self.student)
+        return f"{str(self.student)} -  {str(self.job)} "
 

@@ -28,6 +28,7 @@ urlpatterns = [
     path("accounts/", include("accounts.urls", namespace="accounts")),
     path("admin/", admin.site.urls),
     path("jobs/", include("job.urls", namespace="jobs")),
+    path("reports/", include("dashborad.urls", namespace="dashborad")),
     path("contact-us/", include("contact.urls", namespace="contact")),
     path("api-auth/", include("rest_auth.urls")),
     path("api/token/", TokenObtainPairView.as_view(), name="token_obtain_pair"),

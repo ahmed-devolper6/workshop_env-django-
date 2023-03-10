@@ -77,7 +77,7 @@
                         <div class="single_jobs white-bg d-flex justify-content-between">
                             <div class="jobs_left d-flex align-items-center">
                                 <div class="thumb">
-                                    <img src="{{y.owner.image.url}}" alt="" style="
+                                    <img src="{{y.owner.company_proflie.image.url}}" alt="" style="
                                     position: relative;
                                     left: -27px;
                                     bottom: 25px;
@@ -141,8 +141,7 @@
                                     border-radius: 8px;
                             ">
                         </div>
-                        <a href="jobs.html"><h3>{{z.name}}</h3></a>
-                        <p> <span>50</span> Available position</p>
+                        <a href="jobs.html"><h3>{{z.user}}</h3></a>
                     </div>
                 </div>
                 {% endfor %}

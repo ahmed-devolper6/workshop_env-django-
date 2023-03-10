@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    
     'django.contrib.staticfiles',
     "home",
     "job",
@@ -50,6 +51,7 @@ INSTALLED_APPS = [
     "django_extensions",
     'slick_reporting',
     'crispy_forms',
+    'dashborad',
     
 ]
 
@@ -61,7 +63,9 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.contrib.messages.middleware.MessageMiddleware',
 ]
+MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
 
 ROOT_URLCONF = 'project.urls'
 

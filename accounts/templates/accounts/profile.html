@@ -29,9 +29,10 @@
                         <div class="job_content">
                             <ul>
                                 <li>content with admin to add ur info</li>
-                                <li>Name: <span>{{stu}}</span></li>
-                                <li>index: <span>{{stu.index}}</span></li>
-                                <li>batch: <span>{{stu.batch}}</span></li>
+                                <li>Name: <span>{{stu.name}}</span></li>
+                                <li>index: <span>{{stu}}</span></li>
+                                <li>batch: <span>{{stu.batches}}</span></li>
+                                <li>faculty: <span>{{stu.faculty}}</span></li>
                                 <li>phone_number: <span>{{stu.phone_number}}</span></li>
                                 <li>cgpa: <span>{{stu.cgpa}}</span></li>
                             </ul>
@@ -43,7 +44,7 @@
                                 <li>content with admin to add ur info</li>
                                 <li>Name: <span>{{company}}</span></li>
                                 <li>loction: <span>{{company.loction}}</span></li>
-                                <li>desc: <span>{{company.desc}}</span></li>
+                                <li>desc: <span>{{company.desc|safe}}</span></li>
                                 <li>email: <span>{{company.email}}</span></li>
                                 <li>contact_number: <span>{{company.contact_number}}</span></li>
                                 <li>onwer_name: <span>{{company.onwer_name}}</span></li>

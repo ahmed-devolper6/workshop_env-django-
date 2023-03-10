@@ -60,7 +60,30 @@
                     <div class="apply_job_form white-bg">
                         <h1>status</h1>
                         <hr>
-                        <h3>{{apply.status}}</h3>
+                        {% if apply.status == 'accept' %}
+                        <div class="card bg-success text-white shadow">
+                            <div class="card-body">
+                                {{apply.status}}
+                                <div class="text-white-50 small">your accept into program the company reach you soon</div>
+                            </div>
+                        </div>
+                        {% endif %}
+                        {% if apply.status == 'regret' %}
+                        <div class="card bg-warning text-white shadow">
+                            <div class="card-body">
+                                {{apply.status}}
+                                <div class="text-white-50 small">you can apply agin the other workshops</div>
+                            </div>
+                        </div>
+                        {% endif %}
+                        {% if apply.status != 'accept' and apply.status != 'regret' %}
+                        <div class="card bg-warning text-white shadow">
+                            <div class="card-body">
+                                panding
+                                <div class="text-white-50 small">ur status is panding</div>
+                            </div>
+                        </div>
+                        {% endif  %}
                     </div>
                 </div>
                 <div class="col-lg-4">
